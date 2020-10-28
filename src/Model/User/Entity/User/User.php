@@ -46,6 +46,14 @@ class User
         $this->status = self::STATUS_WAIT;
     }
 
+    public function confirmSignUp(): void
+    {
+        if(!$this->isWait()){
+            throw new \DomainException('user is already confirm.');
+        }
+        $this->status = self::STATUS_ACTIVE;
+        $this->confirmToken = null;
+    }
     public function isWait() : bool
     {
         return $this->status === self::STATUS_WAIT;
@@ -66,7 +74,7 @@ class User
         return $this->passwordHash;
     }
 
-    public function getConfirmToken(): string
+    public function getConfirmToken(): ?string
     {
         return $this->confirmToken;
     }
