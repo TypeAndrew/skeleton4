@@ -39,7 +39,7 @@ class ConfirmTest extends TestCase
         self::assertNull($user->getConfirmToken());
     }
 
-    public function testAlready(): void
+    /*public function testAlready(): void
     {
        // $user = $this->buildSignedUpUser();
 
@@ -53,7 +53,7 @@ class ConfirmTest extends TestCase
         $user->confirmSignUp();
         $this->expectExceptionMessage('User is already confirmed.');
         $user->confirmSignUp();
-    }
+    }*/
 
     /*  private function buildSignedUpUser(): User
       {
